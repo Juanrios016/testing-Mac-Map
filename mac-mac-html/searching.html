@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--
+      This is the page head - it contains info the browser uses to display the page
+      You won't see what's in the head in the page
+      Scroll down to the body element for the page content
+    -->
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+
+    <!-- 
+      This is an HTML comment
+      You can write text in a comment and the content won't be visible in the page
+    -->
+
+    <!-- <title>Mac Map</title> -->
+
+    <!-- Meta tags for SEO and social sharing -->
+    <link rel="canonical" href="https://glitch-hello-website.glitch.me/" />
+    <meta
+      name="description"
+      content="A simple website, built with Glitch. Remix it to get your own."
+    />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:title" content="Mac Map" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://glitch-hello-website.glitch.me/" />
+    <meta
+      property="og:description"
+      content="A simple website, built with Glitch. Remix it to get your own."
+    />
+    <meta
+      property="og:image"
+      content="https://cdn.glitch.com/605e2a51-d45f-4d87-a285-9410ad350515%2Fhello-website-social.png?v=1616712748147"
+    />
+    <meta name="twitter:card" content="summary" />
+
+    <!-- Import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/mac-map-css/style.css" />
+
+    <!-- Import the webpage's javascript file -->
+    <script type="text/javascript" src="/mac-map-js/rooms.js"></script> 
+    <script type="text/javascript" src="/mac-map-js/script.js"defer></script>
+    <script type="text/javascript" src="/mac-map-js/searching.js"></script>
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/mac-map-js/jquery.js"></script>
+    
+  </head>
+  <body>
+    <!-- main menu code starts--------------------------------------------------------- -->
+    <nav class="nav-main">
+        <div class="btn-toggle-nav" onclick="toggleNav()"></div>
+        <h1 class="title" >MAC MAP</h1>
+    </nav>
+
+    <aside class="nav-sidebar">
+        <ul>
+            <li><span>Menu</span></li>
+            <li><a href="landing-page.html">Home</a></li>
+            <li><a href="searching.html">Start Searchiing</a></li>
+            <li><a href="#">Learn More</a></li>
+        </ul>
+    </aside>
+
+
+    <!-- main menu code ends--------------------------------------------------------- -->
+
+    <!-- The wrapper and content divs set margins and positioning -->
+    <div>
+      <div class="floors-btn">
+        <button class="lower-floor-btn" onclick="changeImageLL()">Lower level</button>
+        <button class="first-floor-btn" onclick="changeImage1L()">1st Floor</button>
+        <button class="second-floor-btn" onclick="changeImage2L()">2nd Floor</button>
+        <button class="third-floor-btn" onclick="changeImage3L()">3rd Floor</button>
+        <button class="fourth-floor-btn" onclick="changeImage4L()">4th Floor</button>
+      </div>
+      <div class="wrapper">
+        <div class="content" role="main">
+          <!-- This is the start of content for our page -->
+          <!-- This is code for the text field that takes a room number as an input-->
+          <form>
+            Room Number :
+            <input
+              type="text"
+              class="InputRoom"
+              size="10"
+              id = "textbox"
+            />
+          </form>
+
+          <p class="roomDisplay"></p>
+
+          <label for="building">Choose a Macalester Building:</label>
+
+          <select name="build" id="build">
+            <option value="library">Library</option>
+            <option value="orl">Olin Rice Center</option>
+            <option value="carn" onClick="buildingChange()">Carnegie</option>
+            <option value="hum" onClick="buildingChange()">Humanities</option>
+          </select>
+          <br /><br />
+          <!-- Submit Button-->
+          <input class = submit type="submit" value="Submit" onClick="begin()" />
+          <!-- Canvas --> 
+          <canvas id = "searchCanvas" class="canvas" width="750" height="500"></canvas>
+      
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
